@@ -132,10 +132,8 @@ ORDER BY a.DATA_ATENDIMENTO DESC, a.HORA_ATENDIMENTO DESC;
 ## 🛠️ Tecnologias Utilizadas
 
 * **SQL (Structured Query Language)**
-* **MySQL / MariaDB**
+* **MySQL 
 
 ---
 
-## 👤 Autor
 
-Desenvolvido por [Clauber Correa](https://github.com/claubercorrea).
