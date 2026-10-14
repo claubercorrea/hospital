@@ -1,0 +1,35 @@
+create database if not exists  hospital;
+use hospital;
+
+create table if not exists pacientes (
+CODIGO_PACIENTE int PRIMARY KEY  not null UNIQUE ,
+CPF VARCHAR(12) not null unique,
+DATA_NASCIMENTO DATE not null,
+NOME_COMPLETO_PACIENTE VARCHAR(45) not null,
+RUA VARCHAR(45),
+BAIRRO VARCHAR(45),
+CIDADE VARCHAR(45),
+UF CHAR(2),
+TEL varchar(15));
+
+
+create table if not exists medicos(
+CODIGO_MEDICO int primary key not null unique,
+CRM_MEDICO VARCHAR(50) not null unique,
+ESPECIALIDADE_MEDICO VARCHAR(45) not null,
+NOME_COMPLETO_MEDICO VARCHAR(50) not null
+);
+
+create table if not exists atendimentos(
+CODIGO_ATENDIMENTO INT primary key NOT NULL UNIQUE,
+VALOR_CONSULTA decimal(10,2),
+HORA_ATENDIMENTO TIME,
+DATA_ATENDIMENTO DATE,
+DIAGNOSTICO TEXT,
+CODIGO_MEDICO INT,
+CODIGO_PACIENTES INT,
+CONSTRAINT ID_MEDICO FOREIGN KEY(CODIGO_MEDICO)
+REFERENCES medicos(CODIGO_MEDICO),
+CONSTRAINT ID_PACIENTE FOREIGN KEY(CODIGO_PACIENTES)
+REFERENCES pacientes(CODIGO_PACIENTE)
+);
